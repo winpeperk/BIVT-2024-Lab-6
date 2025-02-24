@@ -65,12 +65,12 @@ namespace Lab_6
             //методы
             public void SetCriterias(double[] coefs)
             {
-                if (coefs != null)
+                if (coefs == null || _coef == null) return;
                 Array.Copy(coefs, _coef, 4);
             }
             public void Jump(int[] marks)
             {
-                if (marks == null || counterJump >= 4) return;
+                if (marks == null || counterJump >= 4 || _marks == null) return;
                 for(int judge = 0; judge < 7; judge++)
                 {
                     _marks[counterJump, judge] = marks[judge];

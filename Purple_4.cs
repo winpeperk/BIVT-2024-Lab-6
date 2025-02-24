@@ -49,7 +49,10 @@ namespace Lab_6
             public Group(Group group)
             {
                 _name = group.Name;
-                _sportsmen = group.Sportsmen;
+                if (group.Sportsmen != null)
+                    _sportsmen = group.Sportsmen;
+                else
+                    _sportsmen = null;
             }
 
             //поля
@@ -63,7 +66,7 @@ namespace Lab_6
             //методы
             public void Add(Sportsman sportsman)
             {
-                if (_sportsmen == null) ;
+                if (_sportsmen == null) return;
 
                 Array.Resize(ref _sportsmen, _sportsmen.Length + 1);
                 _sportsmen[_sportsmen.Length - 1] = sportsman;
@@ -92,6 +95,8 @@ namespace Lab_6
             }
             public void Sort()
             {
+                if (_sportsmen == null) return;
+
                 for(int i = 1, j = 2; i < _sportsmen.Length; )
                 {
                     if(i == 0 || _sportsmen[i - 1].Time <= _sportsmen[i].Time)

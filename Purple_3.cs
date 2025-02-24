@@ -47,12 +47,17 @@ namespace Lab_6
             //методы
             public void Evaluate(double result)
             {
-                if (counterMark >= 7) return;
+                if (counterMark >= 7 || _marks == null) return;
                 _marks[counterMark++] = result;
             }
             public static void SetPlaces(Participant[] participants)
             {
                 if(participants == null || participants.Length == 0) return;
+
+                foreach (var participant in participants)
+                {
+                    if (participant._marks == null || participant._places == null) return;
+                }
 
                 double[,] matrixMarks = new double[participants.Length, 7];
 
@@ -156,6 +161,7 @@ namespace Lab_6
             public static void Sort(Participant[] array)
             {
                 if (array == null) return;
+
                 foreach(var participant in array)
                 {
                     if (participant._marks == null || participant._places == null) return;

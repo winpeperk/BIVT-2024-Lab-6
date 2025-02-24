@@ -48,7 +48,8 @@ namespace Lab_6
             public void Jump(int distance, int[] marks)
             {
                 _distance = distance;
-                if (marks != null && marks.Length == 5) Array.Copy(marks, _marks, 5);
+                if (marks == null || _marks == null) return;
+                Array.Copy(marks, _marks, 5);
             }
             public static void Sort(Participant[] array)
             {
