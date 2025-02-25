@@ -33,7 +33,7 @@ namespace Lab_6
             //свойства
             public string Name => _name;
             public string Surname => _surname;
-            public double[] Coef => _coef;
+            public double[] Coefs => _coef;
             public int[,] Marks => _marks;
             public double TotalScore
             {
